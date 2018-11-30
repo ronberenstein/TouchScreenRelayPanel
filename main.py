@@ -1,83 +1,67 @@
-from kivy.app import App
-from kivy.config import Config
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.slider import Slider
-from kivy.uix.togglebutton import ToggleButton
+from guizero import App, PushButton, Slider, Text
+from PIL import Image
+
+path = '/home/ron/TouchScreenRelayPanel/'
+rear_light_state = 0
+front_light_state = 0
+water_pump_state = 0
+winch_state = 0
+
+def rear_light_callback():
+    global rear_light_state, rear_light_button
+    if rear_light_state == 0:
+        rear_light_state = 1
+        rear_light_button.image = path + 'rear_lights_on.png'
+    else:
+        rear_light_state = 0
+        rear_light_button.image = path + 'rear_lights_off.png'
+
+def front_light_callback():
+    global front_light_state, front_light_button
+    if front_light_state == 0:
+        front_light_state = 1
+        front_light_button.image = path + 'front_lights_on.png'
+    else:
+        front_light_state = 0
+        front_light_button.image = path + 'front_lights_off.png'
+
+def water_pump_callback():
+    global water_pump_state, water_pump_button
+    if water_pump_state == 0:
+        water_pump_state = 1
+        water_pump_button.image = path + 'water_pump_on.png'
+    else:
+        water_pump_state = 0
+        water_pump_button.image = path + 'water_pump_off.png'
+
+def winch_callback():
+    global winch_state, winch_button
+    if winch_state == 0:
+        winch_state = 1
+        winch_button.image = path + 'winch_on.png'
+    else:
+        winch_state = 0
+        winch_button.image = path + 'winch_off.png'
+
+def screen_brightness():
+    global slider
+
+    print(slider.value)
 
 
-def rear_light_callback(instance, value):
-    print('rear light is ', value)
+app = App(title="Keypad example", width=480, height=320, layout="grid")
+app.bg='black'
+rear_light_button = PushButton(app, command=rear_light_callback, grid=[0,0], align='left', image = path + 'rear_lights_off.png')
+front_light_button = PushButton(app, command=front_light_callback, grid=[1,0], align='left',image = path + 'front_lights_off.png')
+water_pump_button  = PushButton(app, command=water_pump_callback, grid=[2,0], align='left',image = path + 'water_pump_off.png')
+winch_button  = PushButton(app, command=winch_callback, grid=[0,1], align='left',image = path + 'winch_off.png')
+slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left')
+slider.resize(320, 40)
+slider.text_color='white'
+slider.bg='black'
 
-def front_light_callback(instance, value):
-    print('front light is', value)
-
-def winch_callback(instance, value):
-    print('winch is ', value)
-
-def slider_callback(instance, value):
-    print('slider value is ', value)
-
-def water_pump_callback(instance, value):
-    print('water pump value is ', value)
-
-class MyApp(App):
-
-    def build(self):
-        SV = 3  # Spacing Value
-        Config.set('graphics', 'width', '480')
-        Config.set('graphics', 'height', '320')
-        Config.set('graphics', 'Color', '[200,200,0]')  # doesn't work...
-
-        layout = BoxLayout(orientation='vertical')
-        top_row = BoxLayout(orientation='horizontal')
-        mid_row = BoxLayout(orientation='horizontal')
-        bottom_row = BoxLayout(orientation='horizontal')
-        layout.spacing = SV
-        top_row.spacing = SV
-        mid_row.spacing = SV
-        bottom_row.spacing = SV
-
-        rear_light = ToggleButton()
-        rear_light.bind(state=rear_light_callback)
-        rear_light.background_normal = 'rear_lights_off.png'
-        rear_light.background_down = 'rear_lights_on.png'
-        top_row.add_widget(rear_light)
-
-        front_light = ToggleButton()
-        front_light.bind(state = front_light_callback)
-        front_light.background_normal = 'front_lights_off.png'
-        front_light.background_down = 'front_lights_on.png'
-        top_row.add_widget(front_light)
-
-        winch = ToggleButton()
-        winch.bind(state = winch_callback)
-        winch.background_normal = 'winch_off.png'
-        winch.background_down = 'winch_on.png'
-        top_row.add_widget(winch)
-
-        water_pump = ToggleButton()
-        water_pump.bind(state=water_pump_callback)
-        water_pump.background_normal = 'water_pump_off.png'
-        water_pump.background_down = 'water_pump_on.png'
-        mid_row.add_widget(water_pump)
-
-        not_function = ToggleButton()
-        not_function2 = ToggleButton()
-        # water_pump.bind(state=water_pump_callback)
-        # water_pump.background_normal = 'water_pump_off.png'
-        # water_pump.background_down = 'water_pump_on.png'
-        mid_row.add_widget(not_function)
-        mid_row.add_widget(not_function2)
-
-        screenIntensity = Slider(min=0, max=100, value=50, value_track=True, value_track_color=[0, 0, 1, 1])
-        screenIntensity.bind(value = slider_callback)
-        bottom_row.add_widget(screenIntensity)
-        layout.add_widget(top_row)
-        layout.add_widget(mid_row)
-        layout.add_widget(bottom_row)
-
-        return layout
-
+def main():
+    app.display()
 
 if __name__ == '__main__':
-    MyApp().run()
+    main()
