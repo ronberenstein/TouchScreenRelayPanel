@@ -47,8 +47,8 @@ def winch_callback():
 
 def screen_brightness():
     global slider
-    bl.set_brightness(int(slider.value), smooth=True, duration=0.5)
-    # print(slider.value)
+    print(slider.value)
+    bl.set_brightness(str(slider.value))
 
 
 app = App(title="Keypad example", width=480, height=320, layout="grid")
@@ -65,7 +65,7 @@ slider.bg='black'
 
 def main():
     app.tk.attributes("-fullscreen",True)
-    # app.tk.config(cursor='none')
+    app.tk.config(cursor='none')
     app.display()
 
 if __name__ == '__main__':
