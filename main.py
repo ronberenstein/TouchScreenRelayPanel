@@ -1,8 +1,9 @@
 from guizero import App, PushButton, Slider, Text
 from PIL import Image
+import rpi_backlight as bl
 
-path = '/home/ron/TouchScreenRelayPanel/'
-#path = '/home/pi/TouchScreenRelayPanel/'
+#path = '/home/ron/TouchScreenRelayPanel/'
+path = '/home/pi/TouchScreenRelayPanel/'
 rear_light_state = 0
 front_light_state = 0
 water_pump_state = 0
@@ -46,8 +47,8 @@ def winch_callback():
 
 def screen_brightness():
     global slider
-
-    print(slider.value)
+    bl.set_brightness(int(slider.value), smooth=True, duration=0.5)
+    # print(slider.value)
 
 
 app = App(title="Keypad example", width=480, height=320, layout="grid")
@@ -56,14 +57,15 @@ rear_light_button = PushButton(app, command=rear_light_callback, grid=[0,0], ali
 front_light_button = PushButton(app, command=front_light_callback, grid=[1,0], align='left',image = path + 'front_lights_off.png')
 water_pump_button  = PushButton(app, command=water_pump_callback, grid=[2,0], align='left',image = path + 'water_pump_off.png')
 winch_button  = PushButton(app, command=winch_callback, grid=[0,1], align='left',image = path + 'winch_off.png')
-slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left')
+slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left', start=30, end=255)
+slider.value='255'
 slider.resize(320, 40)
 slider.text_color='white'
 slider.bg='black'
 
 def main():
     app.tk.attributes("-fullscreen",True)
-    app.tk.config(cursor='none')
+    # app.tk.config(cursor='none')
     app.display()
 
 if __name__ == '__main__':
