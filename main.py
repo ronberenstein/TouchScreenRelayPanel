@@ -1,6 +1,9 @@
 from guizero import App, PushButton, Slider, Text
 from PIL import Image
 import rpi_backlight as bl
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)
 
 #path = '/home/ron/TouchScreenRelayPanel/'
 path = '/home/pi/TouchScreenRelayPanel/'
@@ -14,9 +17,14 @@ def rear_light_callback():
     if rear_light_state == 0:
         rear_light_state = 1
         rear_light_button.image = path + 'rear_lights_on.png'
+        GPIO.setup(40, GPIO.OUT)
+        GPIO.output(40, GPIO.LOW)
+
     else:
         rear_light_state = 0
         rear_light_button.image = path + 'rear_lights_off.png'
+        GPIO.setup(40, GPIO.OUT)
+        GPIO.output(40, GPIO.HIGH)
 
 def front_light_callback():
     global front_light_state, front_light_button
