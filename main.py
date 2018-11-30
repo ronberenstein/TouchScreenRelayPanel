@@ -1,7 +1,8 @@
 from guizero import App, PushButton, Slider, Text
 from PIL import Image
 
-path = '/home/ron/TouchScreenRelayPanel/'
+#path = '/home/ron/TouchScreenRelayPanel/'
+path = '/home/pi/TouchScreenRelayPanel/'
 rear_light_state = 0
 front_light_state = 0
 water_pump_state = 0
@@ -61,6 +62,8 @@ slider.text_color='white'
 slider.bg='black'
 
 def main():
+    app.tk.attributes("-fullscreen",True)
+    app.tk.config(cursor='none')
     app.display()
 
 if __name__ == '__main__':
