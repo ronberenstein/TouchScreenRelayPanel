@@ -1,8 +1,8 @@
 from guizero import App, PushButton, Slider, Text
 from PIL import Image
 
-#path = '/home/ron/TouchScreenRelayPanel/'
-path = '/home/pi/TouchScreenRelayPanel/'
+path = '/home/ron/TouchScreenRelayPanel/'
+#path = '/home/pi/TouchScreenRelayPanel/'
 rear_light_state = 0
 front_light_state = 0
 water_pump_state = 0
