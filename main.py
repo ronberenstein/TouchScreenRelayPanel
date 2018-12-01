@@ -67,8 +67,8 @@ water_pump_button  = PushButton(app, command=water_pump_callback, grid=[2,0], al
 winch_button  = PushButton(app, command=winch_callback, grid=[0,1], align='left',image = path + 'winch_off.png')
 slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left', start=30, end=255)
 slider.value='255'
-slider.resize(320, 40)
-slider.text_color='white'
+slider.resize(460, 40)
+slider.text_color='red'
 slider.bg='black'
 
 def main():
