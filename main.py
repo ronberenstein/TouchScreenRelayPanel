@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
 
-path = '/home/ron/TouchScreenRelayPanel/'
-#path = '/home/pi/TouchScreenRelayPanel/'
+# path = '/home/ron/TouchScreenRelayPanel/'
+path = '/home/pi/TouchScreenRelayPanel/'
 rear_light_state = 0
 front_light_state = 0
 water_pump_state = 0
