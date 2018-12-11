@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
 
-#path = '/home/ron/TouchScreenRelayPanel/'
-path = '/home/pi/TouchScreenRelayPanel/'
+path = '/home/ron/TouchScreenRelayPanel/'
+#path = '/home/pi/TouchScreenRelayPanel/'
 rear_light_state = 0
 front_light_state = 0
 water_pump_state = 0
@@ -31,27 +31,41 @@ def front_light_callback():
     if front_light_state == 0:
         front_light_state = 1
         front_light_button.image = path + 'front_lights_on.png'
+        GPIO.setup(38, GPIO.OUT)
+        GPIO.output(38, GPIO.LOW)
     else:
         front_light_state = 0
         front_light_button.image = path + 'front_lights_off.png'
+        GPIO.setup(38, GPIO.OUT)
+        GPIO.output(38, GPIO.HIGH)
+
 
 def water_pump_callback():
     global water_pump_state, water_pump_button
     if water_pump_state == 0:
         water_pump_state = 1
         water_pump_button.image = path + 'water_pump_on.png'
+        GPIO.setup(36, GPIO.OUT)
+        GPIO.output(36, GPIO.LOW)
     else:
         water_pump_state = 0
         water_pump_button.image = path + 'water_pump_off.png'
+        GPIO.setup(36, GPIO.OUT)
+        GPIO.output(36, GPIO.HIGH)
+
 
 def winch_callback():
     global winch_state, winch_button
     if winch_state == 0:
         winch_state = 1
         winch_button.image = path + 'winch_on.png'
+        GPIO.setup(37, GPIO.OUT)
+        GPIO.output(37, GPIO.LOW)
     else:
         winch_state = 0
         winch_button.image = path + 'winch_off.png'
+        GPIO.setup(37, GPIO.OUT)
+        GPIO.output(37, GPIO.HIGH)
 
 def screen_brightness():
     global slider
@@ -65,11 +79,11 @@ rear_light_button = PushButton(app, command=rear_light_callback, grid=[0,0], ali
 front_light_button = PushButton(app, command=front_light_callback, grid=[1,0], align='left',image = path + 'front_lights_off.png')
 water_pump_button  = PushButton(app, command=water_pump_callback, grid=[2,0], align='left',image = path + 'water_pump_off.png')
 winch_button  = PushButton(app, command=winch_callback, grid=[0,1], align='left',image = path + 'winch_off.png')
-slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left', start=30, end=255)
-slider.value='255'
-slider.resize(320, 40)
-slider.text_color='white'
-slider.bg='black'
+# slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left', start=30, end=255)
+# slider.value='255'
+# slider.resize(320, 40)
+# slider.text_color='white'
+# slider.bg='black'
 
 def main():
     app.tk.attributes("-fullscreen",True)
