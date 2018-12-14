@@ -4,7 +4,9 @@ The project is designated for 12v systems such as cars and small trucks. Using t
 what are the accessories he wish to control and also decide on the representation on the display screen. \
 To implement this project the user should be lightly familiar with Python and Linux OS, and have basic knowledge in
 electronics. \
-In this work I've used 8ch relay board and actually controlling 6ch (due to wire selection). 
+In this work I've used 8ch relay board and actually controlling 6ch (due to wire selection).
+
+![main](https://user-images.githubusercontent.com/25335836/49975742-11dd6f00-fef4-11e8-8532-9836decbe74b.jpg)
 ##materials and equipment
 The materials that was used in this project are:
 1. [RaspberryPi 3b+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/)
@@ -64,7 +66,13 @@ The raspberryPi+touchscreen case was created using 3D printing. CAD+STL files of
 Alternative cases can be built using traditional techniques, or using of-the-shelf electrical boxes.
 
 ## Electrical diagram
-  
+We use the raspberryPi GPIO pins to control the relay board. \
+I used 8 cord cable (Ethernet CAT6 cable). 2 cords are dedicated to the 5v and ground inputs, leaving 6 cords for controlling the relay. By
+using 10 cord cable, all 8 relay channel can be utilize.
+The electrical connection are as follows:
+
+![electric connections diagram](https://user-images.githubusercontent.com/25335836/49975123-59aec700-fef1-11e8-934d-552a25336d1f.png)
+
 
 ## possible modifications
 By replacing the images of the button, new type of button can be created.
