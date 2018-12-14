@@ -6,8 +6,11 @@ To implement this project the user should be lightly familiar with Python and Li
 electronics. \
 In this work I've used 8ch relay board and actually controlling 6ch (due to wire selection).
 
-![main](https://user-images.githubusercontent.com/25335836/49975742-11dd6f00-fef4-11e8-8532-9836decbe74b.jpg)
-##materials and equipment
+[//]: # ![main](https://user-images.githubusercontent.com/25335836/49975742-11dd6f00-fef4-11e8-8532-9836decbe74b.jpg)
+
+![main](https://user-images.githubusercontent.com/25335836/49976497-22431900-fef7-11e8-9296-b024fbd926c4.gif)
+
+## Materials and equipment
 The materials that was used in this project are:
 1. [RaspberryPi 3b+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/)
 2. [5v 8ch relay board](https://www.amazon.com/SainSmart-101-70-102-8-Channel-Relay-Module/dp/B0057OC5WK)
@@ -18,7 +21,7 @@ The materials that was used in this project are:
 7. soldering and isolating equipment
 
 
-## preparing the raspberryPi
+## Preparing the raspberryPi
 1. Before starting using the raspberryPi please follow the instructions [here](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up). 
 In this work we will use the NOOBS installer with **Raspbian**.
 2. Prepare the touchscreen using it's own instructions. \
@@ -74,7 +77,7 @@ The electrical connection are as follows:
 ![electric connections diagram](https://user-images.githubusercontent.com/25335836/49975123-59aec700-fef1-11e8-934d-552a25336d1f.png)
 
 
-## possible modifications
+## Possible modifications
 By replacing the images of the button, new type of button can be created.
 
 
