@@ -6,7 +6,7 @@ To implement this project the user should be lightly familiar with Python and Li
 electronics. \
 In this work I've used 8ch relay board and actually controlling 6ch (due to wire selection).
 
-[//]: # ![main](https://user-images.githubusercontent.com/25335836/49975742-11dd6f00-fef4-11e8-8532-9836decbe74b.jpg)
+<!---[main](https://user-images.githubusercontent.com/25335836/49975742-11dd6f00-fef4-11e8-8532-9836decbe74b.jpg)--->
 
 ![main](https://user-images.githubusercontent.com/25335836/49976497-22431900-fef7-11e8-9296-b024fbd926c4.gif)
 
