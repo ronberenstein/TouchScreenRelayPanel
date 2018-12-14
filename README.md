@@ -62,6 +62,11 @@ At this point the program should run every time the raspberryPi is starts.
 The raspberryPi+touchscreen case was created using 3D printing. CAD+STL files of the can be found [here](https://github.com/ronberenstein/TouchScreenRelayPanel/tree/CAD-and-STL-files)
 Alternative cases can be built using traditional techniques, or using of-the-shelf electrical boxes.
 
+![4-4](https://user-images.githubusercontent.com/25335836/49980898-44926200-ff0a-11e8-85be-b6421982db88.png)
+![1-1](https://user-images.githubusercontent.com/25335836/49980900-452af880-ff0a-11e8-915f-a1f86f5ab193.png)
+![2-2](https://user-images.githubusercontent.com/25335836/49980901-452af880-ff0a-11e8-8461-572ca57d770d.png)
+![3-3](https://user-images.githubusercontent.com/25335836/49980902-452af880-ff0a-11e8-980b-23a10ea9f1c2.png)
+
 ## Electrical diagram
 We use the raspberryPi GPIO pins to control the relay board. \
 I used 8 cord cable (Ethernet CAT6 cable). 2 cords are dedicated to the 5v and ground inputs, leaving 6 cords for controlling the relay. By
