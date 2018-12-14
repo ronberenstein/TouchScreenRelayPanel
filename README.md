@@ -5,11 +5,12 @@ what are the accessories he wish to control and also decide on the representatio
 To implement this project the user should be lightly familiar with Python and Linux OS, and have basic knowledge in
 electronics. \
 In this work I've used 8ch relay board and actually controlling 6ch (due to wire selection).
+The design also support manual control using dip switch.
 
 <!---[main](https://user-images.githubusercontent.com/25335836/49975742-11dd6f00-fef4-11e8-8532-9836decbe74b.jpg)--->
 
 ![main](https://user-images.githubusercontent.com/25335836/49976497-22431900-fef7-11e8-9296-b024fbd926c4.gif)
-
+![img_20181213_161247-2](https://user-images.githubusercontent.com/25335836/49978813-28d68e00-ff01-11e8-8622-2c4cd6090d84.jpg)
 ## Materials and equipment
 The materials that was used in this project are:
 1. [RaspberryPi 3b+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/)
@@ -20,7 +21,6 @@ The materials that was used in this project are:
 6. 8 or more cord cable
 7. soldering and isolating equipment
 
-
 ## Preparing the raspberryPi
 1. Before starting using the raspberryPi please follow the instructions [here](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up). 
 In this work we will use the NOOBS installer with **Raspbian**.
@@ -29,14 +29,8 @@ In this work we will use the NOOBS installer with **Raspbian**.
     To install that touch screen I needed to run the following command in the terminal:
     ```
     git clone https://github.com/goodtft/LCD-show.git
-    ```
-    ```
     chmod -R 755 LCD-show    
-    ```
-    ```
     cd LCD-show/
-    ```
-    ```
     sudo ./LCD35-show
     ```
     After rebooting the touchscreen will start functioning.
@@ -47,7 +41,7 @@ Alternative method is to use git:
     ```
     git clone https://github.com/ronberenstein/TouchScreenRelayPanel.git
     ``` 
-4. Install guizero. Open new terminal (Ctrl+t) and enter:
+4. Install [guizero](https://lawsie.github.io/guizero/about/). Open new terminal (Ctrl+t) and enter:
    ```
    sudo pip3 install guizero
    ```
@@ -65,7 +59,7 @@ Open new terminal (Ctrl+t) and enter the following command:
 At this point the program should run every time the raspberryPi is starts.
 
 ## Building the case
-The raspberryPi+touchscreen case was created using 3D printing. CAD+STL files of the can be found [here](ADD!!!!!!!!!!!)
+The raspberryPi+touchscreen case was created using 3D printing. CAD+STL files of the can be found [here](https://github.com/ronberenstein/TouchScreenRelayPanel/tree/CAD-and-STL-files)
 Alternative cases can be built using traditional techniques, or using of-the-shelf electrical boxes.
 
 ## Electrical diagram
@@ -75,11 +69,23 @@ using 10 cord cable, all 8 relay channel can be utilize.
 The electrical connection are as follows:
 
 ![electric connections diagram](https://user-images.githubusercontent.com/25335836/49975123-59aec700-fef1-11e8-934d-552a25336d1f.png)
-
+![img_20181213_140627-2](https://user-images.githubusercontent.com/25335836/49978762-dac18a80-ff00-11e8-84e9-ab728cf775c8.jpg)
 
 ## Possible modifications
 By replacing the images of the button, new type of button can be created.
 
-
 ## Points for discussion
 1. I believe that the project can also be implemented using the raspberryPi zero.
+
+## Authors
+**Ron Berenstein** - [website](http://ronberenstein.com/index.html)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+* [CITRIS invention lab](https://invent.citris-uc.org/)
+
+![s - img_20181213_153851](https://user-images.githubusercontent.com/25335836/49978907-92569c80-ff01-11e8-9dc2-8f1191499096.jpg)
+![s - img_20181213_153906](https://user-images.githubusercontent.com/25335836/49978913-9682ba00-ff01-11e8-8f9d-00902411fd12.jpg)
+![s - img_20181213_154007](https://user-images.githubusercontent.com/25335836/49978917-98e51400-ff01-11e8-83c6-a81f7e822108.jpg)
