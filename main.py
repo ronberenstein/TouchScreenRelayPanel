@@ -11,6 +11,7 @@ rear_light_state = 0
 front_light_state = 0
 water_pump_state = 0
 winch_state = 0
+air_state = 0
 
 def rear_light_callback():
     global rear_light_state, rear_light_button
@@ -67,6 +68,20 @@ def winch_callback():
         GPIO.setup(37, GPIO.OUT)
         GPIO.output(37, GPIO.HIGH)
 
+def air_callback():
+    global air_state, air_button
+    if air_state == 0:
+        air_state = 1
+        air_button.image = path + 'AirSystem_on.png'
+        GPIO.setup(35, GPIO.OUT)
+        GPIO.output(35, GPIO.LOW)
+    else:
+        air_state = 0
+        air_button.image = path + 'AirSystem_off.png'
+        GPIO.setup(35, GPIO.OUT)
+        GPIO.output(35, GPIO.HIGH)
+
+
 def screen_brightness():
     global slider
     print(slider.value)
@@ -79,6 +94,8 @@ rear_light_button = PushButton(app, command=rear_light_callback, grid=[0,0], ali
 front_light_button = PushButton(app, command=front_light_callback, grid=[1,0], align='left',image = path + 'front_lights_off.png')
 water_pump_button  = PushButton(app, command=water_pump_callback, grid=[2,0], align='left',image = path + 'water_pump_off.png')
 winch_button  = PushButton(app, command=winch_callback, grid=[0,1], align='left',image = path + 'winch_off.png')
+air_button  = PushButton(app, command=air_callback(), grid=[1,1], align='left',image = path + 'AirSystem_off.png')
+
 # slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left', start=30, end=255)
 # slider.value='255'
 # slider.resize(320, 40)
