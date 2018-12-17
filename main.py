@@ -94,7 +94,7 @@ rear_light_button = PushButton(app, command=rear_light_callback, grid=[0,0], ali
 front_light_button = PushButton(app, command=front_light_callback, grid=[1,0], align='left',image = path + 'front_lights_off.png')
 water_pump_button  = PushButton(app, command=water_pump_callback, grid=[2,0], align='left',image = path + 'water_pump_off.png')
 winch_button  = PushButton(app, command=winch_callback, grid=[0,1], align='left',image = path + 'winch_off.png')
-air_button  = PushButton(app, command=air_callback(), grid=[1,1], align='left',image = path + 'AirSystem_off.png')
+air_button  = PushButton(app, command=air_callback, grid=[1,1], align='left',image = path + 'AirSystem_off.png')
 
 # slider = Slider(app, command=screen_brightness, grid=[0,2,3,2], align='left', start=30, end=255)
 # slider.value='255'
