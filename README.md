@@ -36,7 +36,7 @@ In this work we will use the NOOBS installer with **Raspbian**.
     After rebooting the touchscreen will start functioning.
     
 3. Create new folder named `TouchScreenRelayPanel` and copy all the files from the 
-(git repo)[https://github.com/ronberenstein/TouchScreenRelayPanel] to the folder. \
+[git repo](https://github.com/ronberenstein/TouchScreenRelayPanel) to the folder. \
 Alternative method is to use git:
     ```
     git clone https://github.com/ronberenstein/TouchScreenRelayPanel.git
